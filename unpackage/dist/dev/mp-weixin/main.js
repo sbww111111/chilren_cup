@@ -3,6 +3,7 @@ const common_vendor = require("./common/vendor.js");
 const common_assets = require("./common/assets.js");
 if (!Math) {
   "./pages/index/index.js";
+  "./pages/community/community.js";
 }
 const _sfc_main$1 = {
   methods: {
@@ -20,7 +21,7 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     c: common_vendor.o(($event) => $options.navigateTo("/pages/index/index")),
     d: common_assets._imports_2,
     e: common_assets._imports_1,
-    f: common_vendor.o(($event) => $options.navigateTo("/pages/index/index")),
+    f: common_vendor.o(($event) => $options.navigateTo("/pages/community/community")),
     g: common_assets._imports_3,
     h: common_assets._imports_1,
     i: common_vendor.o(($event) => $options.navigateTo("/pages/post/post")),

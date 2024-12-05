@@ -6,7 +6,7 @@
 	   <image class="tab-img" src="/static/fonts/home.png"/>
       </view>
 	  
-	  <view class="tab-item tab-item-two" @click="navigateTo('/pages/index/index')">
+	  <view class="tab-item tab-item-two" @click="navigateTo('/pages/community/community')">
 	    <image class="icon" src="/static/icons/community.png" />
 		<image class="tab-img" src="/static/fonts/home.png"/>
 	  </view>

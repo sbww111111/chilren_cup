@@ -1,1 +1,1 @@
-<view class="container"><view class="page-content">欢迎来到首页</view><custom-tab-bar u-i="7f2905be-0" bind:__l="__l"></custom-tab-bar></view>
+<view class="container"><view class="page-content">欢迎来到首页</view><custom-tab-bar u-i="972f71d8-0" bind:__l="__l"></custom-tab-bar></view>

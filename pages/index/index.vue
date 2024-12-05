@@ -5,7 +5,7 @@
     <!-- 自定义底部导航栏 -->
     <CustomTabBar></CustomTabBar>
   </view>
-</template>、
+</template>
 
 <script>
 	import CustomTabBar from '@/components/CustomTabBar.vue';

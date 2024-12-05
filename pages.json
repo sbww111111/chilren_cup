@@ -5,6 +5,20 @@
 			"style": {
 				"navigationBarTitleText": "uni-app"
 			}
+		},
+		{
+			"path": "pages/community/community",
+			"style": {
+				"navigationBarTitleText": "社区",
+				"disableScroll": true
+			}
+		},
+		{
+			"path" : "pages/edit_post/edit_post",
+			"style" : 
+			{
+				"navigationBarTitleText" : "编辑"
+			}
 		}
 	],
 	"globalStyle": {
@@ -13,7 +27,7 @@
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8",
 		"usingComponents": {
-			"CustomTabBar":"./components/CustomTabBar"
+			"CustomTabBar": "./components/CustomTabBar"
 		}
 	}
 

@@ -1,11 +1,13 @@
 "use strict";
-const _imports_0 = "/static/icons/home.png";
+const _imports_0$1 = "/static/icons/home.png";
 const _imports_1 = "/static/fonts/home.png";
 const _imports_2 = "/static/icons/community.png";
 const _imports_3 = "/static/icons/points.png";
 const _imports_4 = "/static/icons/knowledge.png";
 const _imports_5 = "/static/icons/my.png";
-exports._imports_0 = _imports_0;
+const _imports_0 = "/static/quick_join_us.png";
+exports._imports_0 = _imports_0$1;
+exports._imports_0$1 = _imports_0;
 exports._imports_1 = _imports_1;
 exports._imports_2 = _imports_2;
 exports._imports_3 = _imports_3;
