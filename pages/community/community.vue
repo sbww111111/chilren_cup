@@ -15,13 +15,13 @@
 					<view class="head_portrait">
 						<image :src="item.head_portrait_url"></image>
 					</view>
-					<view class="comment_content">
+					<view class="comment_content" @click="goDetail">
 						<text>{{item.comment}}</text>
 					</view>
 					<view class="like">
 						<image src="../../static/community/like_blank.png"></image>
 					</view>
-					<view class="reply">
+					<view class="reply" @click="goDetail">
 						<image src="../../static/community/comments.png"></image>
 					</view>
 				</view>
@@ -69,13 +69,18 @@
 						comment: "hello world"
 					}
 				]
-				
+
 			}
 		},
 		methods: {
 			goEdit() {
 				uni.navigateTo({
 					url: "/pages/edit_post/edit_post"
+				});
+			},
+			goDetail() {
+				uni.navigateTo({
+					url: "/pages/post_detail/post_detail"
 				})
 			}
 		}
@@ -149,6 +154,7 @@
 						height: 100%;
 					}
 				}
+
 				.comment_content {
 					width: calc(100% - 70px);
 					height: calc(100% - 60px);
@@ -158,29 +164,29 @@
 					position: absolute;
 					top: 2%;
 					left: calc(100vw - 85%);
-				
+
 					text {
 						padding: 5%;
 					}
 				}
-				
+
 				.like {
 					image {
 						width: 45px;
 						height: 40px;
 					}
-				
+
 					position: absolute;
 					bottom: 0;
 					left: calc(100vw - 82%);
 				}
-				
+
 				.reply {
 					image {
 						width: 45px;
 						height: 40px;
 					}
-				
+
 					position: absolute;
 					bottom: 0;
 					left: calc(100vw - 82% + 60px);

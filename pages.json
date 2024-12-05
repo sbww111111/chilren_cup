@@ -19,6 +19,13 @@
 			{
 				"navigationBarTitleText" : "编辑"
 			}
+		},
+		{
+			"path" : "pages/post_detail/post_detail",
+			"style" : 
+			{
+				"navigationBarTitleText" : "帖子详情"
+			}
 		}
 	],
 	"globalStyle": {
