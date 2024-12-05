@@ -5,6 +5,14 @@
 			"style": {
 				"navigationBarTitleText": "uni-app"
 			}
+		},
+		{
+			"path" : "pages/knowledge/knowledge",
+			"style" : 
+			{
+				"navigationBarTitleText" : "科普",
+				"disableScroll" : true
+			}
 		}
 	],
 	"globalStyle": {
