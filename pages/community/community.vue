@@ -75,7 +75,7 @@
 		methods: {
 			goEdit() {
 				uni.navigateTo({
-					url: "/pages/edit_post/edit_post"
+					url: "/pages/release_post/release_post"
 				});
 			},
 			goDetail() {

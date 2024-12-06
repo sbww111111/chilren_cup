@@ -8,7 +8,7 @@
 	  
 	  <view class="tab-item tab-item-two" @click="navigateTo('/pages/community/community')">
 	    <image class="icon" src="/static/icons/community.png" />
-		<image class="tab-img" src="/static/fonts/home.png"/>
+		<image class="tab-img" src="/static/fonts/community_1.png"/>
 	  </view>
 
 

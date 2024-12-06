@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/community/community"
+    "pages/community/community",
+    "pages/release_post/release_post",
+    "pages/post_detail/post_detail"
   ],
   "usingComponents": {
     "CustomTabBar": "./components/CustomTabBar"

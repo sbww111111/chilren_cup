@@ -14,10 +14,10 @@
 			}
 		},
 		{
-			"path" : "pages/edit_post/edit_post",
+			"path" : "pages/release_post/release_post",
 			"style" : 
 			{
-				"navigationBarTitleText" : "编辑"
+				"navigationBarTitleText" : "发帖"
 			}
 		},
 		{
