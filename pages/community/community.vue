@@ -21,22 +21,32 @@
 					<view class="like">
 						<image src="../../static/community/like_blank.png"></image>
 					</view>
-					<view class="reply" @click="goDetail">
+					<view class="reply" @click="showComments()">
 						<image src="../../static/community/comments.png"></image>
 					</view>
 				</view>
 				<view class="comment_item" style="width: 100%; height: 100px;"></view>
 			</scroll-view>
 		</view>
+
+		<uni-popup class="popup" ref="popup" type="bottom" border-radius="10px 10px 0 0">
+			<view class="comment_list">
+				<view class="comment" v-if="commentList.length > 0" v-for="(item, index) in commentList" :key="index">
+					
+				</view>
+			</view>
+		</uni-popup>
 		<CustomTabBar></CustomTabBar>
 	</view>
 </template>
 
 <script>
+	import uniPopup from '@/uni_modules/uni-popup/components/uni-popup/uni-popup.vue';
 	import CustomTabBar from '@/components/CustomTabBar.vue';
 	export default {
 		components: {
-			CustomTabBar
+			CustomTabBar,
+			uniPopup
 		},
 		data() {
 			return {
@@ -68,8 +78,44 @@
 						head_portrait_url: "../../static/icons/logo.png",
 						comment: "hello world"
 					}
+				],
+				commentList: [{
+						user: {
+							uid: "2345",
+							username: "张三",
+							headPortrait: "/static/icons/logo.png"
+						},
+						commentTime: Date.now(),
+						content: "好好看"
+					},
+					{
+						user: {
+							uid: "2345",
+							username: "张三",
+							headPortrait: "/static/icons/logo.png"
+						},
+						commentTime: Date.now(),
+						content: "好好看"
+					},
+					{
+						user: {
+							uid: "2345",
+							username: "张三",
+							headPortrait: "/static/icons/logo.png"
+						},
+						commentTime: Date.now(),
+						content: "好好看"
+					},
+					{
+						user: {
+							uid: "2345",
+							username: "张三",
+							headPortrait: "/static/icons/logo.png"
+						},
+						commentTime: Date.now(),
+						content: "好好看"
+					}
 				]
-
 			}
 		},
 		methods: {
@@ -82,6 +128,9 @@
 				uni.navigateTo({
 					url: "/pages/post_detail/post_detail"
 				})
+			},
+			showComments() {
+				this.$refs.popup.open()
 			}
 		}
 	}
@@ -192,6 +241,15 @@
 					left: calc(100vw - 82% + 60px);
 				}
 			}
+		}
+	}
+
+	.popup {
+		.comment_list {
+			width: 100vw;
+			height: 60vh;
+			border-radius: 50rpx;
+			background-color: #dde8fe;
 		}
 	}
 </style>
