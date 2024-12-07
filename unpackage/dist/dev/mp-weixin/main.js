@@ -29,8 +29,13 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     i: common_vendor.o(($event) => $options.switchTab("/pages/post/post")),
     j: common_assets._imports_5,
     k: common_assets._imports_1,
+<<<<<<< Updated upstream
     l: common_vendor.o(($event) => $options.switchTab("/pages/user/user")),
     m: common_assets._imports_6,
+=======
+    l: common_vendor.o(($event) => $options.navigateTo("/pages/knowledge/knowledge")),
+    m: common_assets._imports_5,
+>>>>>>> Stashed changes
     n: common_assets._imports_1,
     o: common_vendor.o(($event) => $options.switchTab("/pages/user/user"))
   };
