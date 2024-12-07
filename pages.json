@@ -36,6 +36,17 @@
 		"usingComponents": {
 			"CustomTabBar": "./components/CustomTabBar"
 		}
+	},
+	"tabBar": {
+		"height": "0",
+		"list": [
+			{
+				"pagePath": "pages/index/index"
+			},
+			{
+				"pagePath": "pages/community/community"
+			}
+		]
 	}
 
 }

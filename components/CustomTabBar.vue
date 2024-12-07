@@ -1,29 +1,29 @@
 <template>
     <view class="tab-bar">
       <!-- 左侧按钮 -->
-      <view class="tab-item tab-item-one" @click="navigateTo('/pages/index/index')">
+      <view class="tab-item tab-item-one" @click="switchTab('/pages/index/index')">
         <image class="icon" src="/static/icons/home.png" />
 	   <image class="tab-img" src="/static/fonts/home.png"/>
       </view>
 	  
-	  <view class="tab-item tab-item-two" @click="navigateTo('/pages/community/community')">
+	  <view class="tab-item tab-item-two" @click="switchTab('/pages/community/community')">
 	    <image class="icon" src="/static/icons/community.png" />
 		<image class="tab-img" src="/static/fonts/community_1.png"/>
 	  </view>
 
 
       <!-- 中间按钮 -->
-      <view class="tab-item tab-item-center" @click="navigateTo('/pages/post/post')">
+      <view class="tab-item tab-item-center" @click="switchTab('/pages/post/post')">
         <image class="icon" src="/static/icons/points.png" />
 		<image class="tab-img" src="/static/fonts/home.png"/>
       </view>
       
       <!-- 右侧按钮 -->
-      <view class="tab-item tab-item-four" @click="navigateTo('/pages/user/user')">
+      <view class="tab-item tab-item-four" @click="switchTab('/pages/user/user')">
         <image class="icon" src="/static/icons/knowledge.png" />
 		<image class="tab-img" src="/static/fonts/home.png"/>
       </view>
-	  <view class="tab-item tab-item-five" @click="navigateTo('/pages/user/user')">
+	  <view class="tab-item tab-item-five" @click="switchTab('/pages/user/user')">
 	    <image class="icon" src="/static/icons/my.png" />
 		<image class="tab-img" src="/static/fonts/home.png"/>
 	  </view>
@@ -34,8 +34,8 @@
   <script>
   export default {
     methods: {
-      navigateTo(url) {
-        uni.navigateTo({
+      switchTab(url) {
+        uni.switchTab({
           url
         });
       }

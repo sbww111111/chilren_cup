@@ -9,8 +9,8 @@ if (!Math) {
 }
 const _sfc_main$1 = {
   methods: {
-    navigateTo(url) {
-      common_vendor.index.navigateTo({
+    switchTab(url) {
+      common_vendor.index.switchTab({
         url
       });
     }
@@ -20,19 +20,19 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
   return {
     a: common_assets._imports_0,
     b: common_assets._imports_1,
-    c: common_vendor.o(($event) => $options.navigateTo("/pages/index/index")),
+    c: common_vendor.o(($event) => $options.switchTab("/pages/index/index")),
     d: common_assets._imports_2,
     e: common_assets._imports_3,
-    f: common_vendor.o(($event) => $options.navigateTo("/pages/community/community")),
+    f: common_vendor.o(($event) => $options.switchTab("/pages/community/community")),
     g: common_assets._imports_4,
     h: common_assets._imports_1,
-    i: common_vendor.o(($event) => $options.navigateTo("/pages/post/post")),
+    i: common_vendor.o(($event) => $options.switchTab("/pages/post/post")),
     j: common_assets._imports_5,
     k: common_assets._imports_1,
-    l: common_vendor.o(($event) => $options.navigateTo("/pages/user/user")),
+    l: common_vendor.o(($event) => $options.switchTab("/pages/user/user")),
     m: common_assets._imports_6,
     n: common_assets._imports_1,
-    o: common_vendor.o(($event) => $options.navigateTo("/pages/user/user"))
+    o: common_vendor.o(($event) => $options.switchTab("/pages/user/user"))
   };
 }
 const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main$1, [["render", _sfc_render$1], ["__scopeId", "data-v-6def6a3b"]]);
