@@ -4,7 +4,7 @@
 	export default {
 		methods: {
 		  toNavigate(url) {
-		    uni.navigateTo({
+		    uni.redirectTo({
 		      url
 		    });
 		  }
@@ -30,10 +30,12 @@
 	</scroll-view>
 	<view class='order-list'>
 					<view class='order-item' @click="toNavigate('/pages/index/index')">
-										<image  class='order-img' src="/img/3.png" mode=""></image>
+										<image  class='order-img' src="/img/2.png" mode=""></image>
+										<text class="txt">我发布的</text>
 									</view>
 									<view class='order-item' @click="toNavigate('/pages/index/index')">
-										<image  class='order-img' src="/img/2.png" mode=""></image>
+										<image  class='order-img' src="/img/3.png" mode=""></image>
+										<text class="txt">我的收藏</text>
 									</view>
 				</view>
 	</view>
@@ -55,6 +57,11 @@
 	  margin-bottom: 16px;
 	  justify-content: space-between; /* 将内容分散对齐 */
 	}
+	.txt{
+		font-size: 10px;
+		font-weight: bold;
+		color: rgb(131, 178, 249);
+	}
 	.vatar{
 	  width: 100px;
 	  height: 100px;
@@ -62,6 +69,10 @@
 	  margin-top: 30px;
 	  margin-left: 30px; /* 改为左边距 */
 	  margin-right: 30px; /* 移除右边距 */
+	}
+	
+	.order-img{
+		border-radius: 30%;
 	}
 
 	.title {
@@ -73,7 +84,7 @@
 
 	.header{
 	  background-color: rgb(184, 208, 252);
-	  height: 180px;
+	  height: 190px;
 	}
 
 	.low{
