@@ -1,6 +1,8 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/login/login",
+    "pages/index/index",
+    "pages/my/my"
   ],
   "usingComponents": {
     "CustomTabBar": "./components/CustomTabBar"
@@ -8,7 +10,7 @@
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
-    "navigationBarBackgroundColor": "#F8F8F8",
+    "navigationBarBackgroundColor": "#B8D0FC",
     "backgroundColor": "#F8F8F8"
   }
 }

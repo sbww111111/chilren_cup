@@ -13,17 +13,17 @@
 
 
       <!-- 中间按钮 -->
-      <view class="tab-item tab-item-center" @click="navigateTo('/pages/post/post')">
+      <view class="tab-item tab-item-center" @click="navigateTo('/pages/index/index')">
         <image class="icon" src="/static/icons/points.png" />
 		<image class="tab-img" src="/static/fonts/home.png"/>
       </view>
       
       <!-- 右侧按钮 -->
-      <view class="tab-item tab-item-four" @click="navigateTo('/pages/user/user')">
+      <view class="tab-item tab-item-four" @click="navigateTo('/pages/index/index')">
         <image class="icon" src="/static/icons/knowledge.png" />
 		<image class="tab-img" src="/static/fonts/home.png"/>
       </view>
-	  <view class="tab-item tab-item-five" @click="navigateTo('/pages/user/user')">
+	  <view class="tab-item tab-item-five" @click="navigateTo('/pages/my/my')">
 	    <image class="icon" src="/static/icons/my.png" />
 		<image class="tab-img" src="/static/fonts/home.png"/>
 	  </view>
@@ -35,7 +35,7 @@
   export default {
     methods: {
       navigateTo(url) {
-        uni.navigateTo({
+        uni.redirectTo({
           url
         });
       }

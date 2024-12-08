@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "uni-app",
+  "navigationBarTitleText": "首页",
   "usingComponents": {
     "custom-tab-bar": "../../components/CustomTabBar"
   }

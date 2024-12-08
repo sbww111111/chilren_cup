@@ -2,12 +2,14 @@
 const common_vendor = require("./common/vendor.js");
 const common_assets = require("./common/assets.js");
 if (!Math) {
+  "./pages/login/login.js";
   "./pages/index/index.js";
+  "./pages/my/my.js";
 }
 const _sfc_main$1 = {
   methods: {
     navigateTo(url) {
-      common_vendor.index.navigateTo({
+      common_vendor.index.redirectTo({
         url
       });
     }
@@ -23,13 +25,13 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     f: common_vendor.o(($event) => $options.navigateTo("/pages/index/index")),
     g: common_assets._imports_3,
     h: common_assets._imports_1,
-    i: common_vendor.o(($event) => $options.navigateTo("/pages/post/post")),
+    i: common_vendor.o(($event) => $options.navigateTo("/pages/index/index")),
     j: common_assets._imports_4,
     k: common_assets._imports_1,
-    l: common_vendor.o(($event) => $options.navigateTo("/pages/user/user")),
+    l: common_vendor.o(($event) => $options.navigateTo("/pages/index/index")),
     m: common_assets._imports_5,
     n: common_assets._imports_1,
-    o: common_vendor.o(($event) => $options.navigateTo("/pages/user/user"))
+    o: common_vendor.o(($event) => $options.navigateTo("/pages/my/my"))
   };
 }
 const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main$1, [["render", _sfc_render$1], ["__scopeId", "data-v-6def6a3b"]]);
