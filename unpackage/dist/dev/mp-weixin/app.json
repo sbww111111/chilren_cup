@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/knowledge/knowledge"
   ],
   "usingComponents": {
     "CustomTabBar": "./components/CustomTabBar"
