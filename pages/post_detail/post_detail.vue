@@ -26,7 +26,7 @@
 			<!-- 文章图片 -->
 			<view class="img_list_box" v-if="post.imgList.length > 0">
 				<view class="img_box" v-for="(img, index) in post.imgList" :key="index">
-					<image class="img" :src="img" mode="aspectFill"></image>
+					<image class="img" :src="img" mode="aspectFill" @click="previewImage(index)"></image>
 				</view>
 			</view>
 		</view>
@@ -119,7 +119,7 @@
 							username: "李四",
 							headPortrait: "/static/icons/logo.png"
 						},
-						content: "星鱼来了",
+						content: "来了来了",
 						publishTime: Date.now()
 					}, {
 						user: {
@@ -207,6 +207,13 @@
 				let minute = date.getMinutes();
 				let second = date.getSeconds();
 				return `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+			},
+			previewImage(idx) {
+				let src = this.post.imgList;
+				uni.previewImage({
+					current: idx,
+					urls: src
+				})
 			}
 		}
 	}
