@@ -9,8 +9,8 @@ if (!Math) {
 }
 const _sfc_main$1 = {
   methods: {
-    switchTab(url) {
-      common_vendor.index.switchTab({
+    navigateTo(url) {
+      common_vendor.index.redirectTo({
         url
       });
     }
