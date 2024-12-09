@@ -35,8 +35,9 @@
   export default {
     methods: {
       navigateTo(url) {
-        uni.navigateTo({
+        uni.redirectTo({
           url
+		 
         });
       }
     }

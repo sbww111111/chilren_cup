@@ -7,7 +7,7 @@ if (!Math) {
 const _sfc_main$1 = {
   methods: {
     navigateTo(url) {
-      common_vendor.index.navigateTo({
+      common_vendor.index.redirectTo({
         url
       });
     }
