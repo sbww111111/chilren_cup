@@ -5,10 +5,10 @@
 				<view class="water_drop_img">
 					<image class="water_drop_img" src="/static/knowledge/water_drop.png"></image>
 				</view>
-				<input type="text" placeholder="输入关键字" v-model="value" />
+				<input type="text" placeholder="输入关键字" v-model="keyWord" />
 			</view>
 			<view class="search_btn">
-				<button form-type="submit">搜索</button>
+				<button form-type="submit" @click="search()">搜索</button>
 			</view>
 		</view>
 		<view class="knowledge_posts">
@@ -18,7 +18,9 @@
 						<view class="img_container">
 							<image :src="item.postCoverUrl" mode="widthFix"></image>
 						</view>
-						<view class="text">{{item.postTitle}}</view>
+						<view class="knowledge_content">
+							<view class="text">{{item.postTitle}}</view>
+						</view>
 					</view>
 				</view>
 				<!-- 空白占位 -->
@@ -37,54 +39,57 @@
 		},
 		data() {
 			return {
+				keyWord: "",
 				posts: [{
-					postTitle: "标题1x x x x x x x xx x x x xx x x x x x x x xxx x x x xx x x x x xxx x x x xx x x x x xxx x x x xx x x x x x x x ",
-					postCoverUrl: "/static/knowledge/1.png",
-					height: 0
-				},
-				{
-					postTitle: "标题2",
-					postCoverUrl: "/static/knowledge/2.png",
-					height: 0
-				},
-				{
-					postTitle: "标题3",
-					postCoverUrl: "/static/knowledge/3.png",
-					height: 0
-				}, {
-					postTitle: "标题4",
-					postCoverUrl: "/static/knowledge/4.png",
-					height: 0
-				}, {
-					postTitle: "标题5",
-					postCoverUrl: "/static/knowledge/5.png",
-					height: 0
-				}, 
-				{
-					postTitle: "标题6",
-					postCoverUrl: "/static/knowledge/6.png",
-					height: 0
-				}, 
-				// {
-				// 	postTitle: "标题7",
-				// 	postCoverUrl: "/static/knowledge/7.png",
-				// 	height: 0
-				// }, 
-				{
-					postTitle: "标题8",
-					postCoverUrl: "/static/knowledge/8.png",
-					height: 0
-				}, {
-					postTitle: "标题9",
-					postCoverUrl: "/static/knowledge/9.png",
-					height: 0
-				}]
+						postTitle: "标题1 x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ",
+						postCoverUrl: "/static/knowledge/1.png",
+						height: 0
+					},
+					{
+						postTitle: "标题2 x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ",
+						postCoverUrl: "/static/knowledge/2.png",
+						height: 0
+					},
+					{
+						postTitle: "标题3 x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ",
+						postCoverUrl: "/static/knowledge/3.png",
+						height: 0
+					}, {
+						postTitle: "标题4 x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x",
+						postCoverUrl: "/static/knowledge/4.png",
+						height: 0
+					}, {
+						postTitle: "标题5",
+						postCoverUrl: "/static/knowledge/5.png",
+						height: 0
+					},
+					{
+						postTitle: "标题6",
+						postCoverUrl: "/static/knowledge/6.png",
+						height: 0
+					},
+					{
+						postTitle: "标题7",
+						postCoverUrl: "/static/knowledge/7.png",
+						height: 0
+					},
+					{
+						postTitle: "标题8",
+						postCoverUrl: "/static/knowledge/8.png",
+						height: 0
+					}, {
+						postTitle: "标题9",
+						postCoverUrl: "/static/knowledge/9.png",
+						height: 0
+					}
+				]
 			}
 		},
 		methods: {
-			formSubmit: function(e) {
-				console.log('form发生了submit事件')
-			},
+			search() {
+				let keyWord = this.keyWord;
+				console.log(keyWord);
+			}
 		}
 	}
 </script>
@@ -179,21 +184,26 @@
 					.img_container {
 						padding-top: 10rpx;
 						text-align: center;
+
 						image {
 							width: calc(100% - (2 * 10rpx));
 							border-radius: 20rpx;
 						}
 					}
 
-					.text {
-						padding: 5%;
-						text-overflow: -o-ellipsis-lastline;
-						overflow: hidden;
-						text-overflow: ellipsis;
-						display: -webkit-box;
-						-webkit-line-clamp: 3;
-						line-clamp: 2;
-						-webkit-box-orient: vertical;
+					.knowledge_content {
+						padding: 10rpx;
+
+						.text {
+							text-overflow: -o-ellipsis-lastline;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							display: -webkit-box;
+							-webkit-line-clamp: 3;
+							line-clamp: 2;
+							-webkit-box-orient: vertical;
+							font-size: 1.2em;
+						}
 					}
 				}
 			}
