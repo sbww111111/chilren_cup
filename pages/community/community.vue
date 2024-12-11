@@ -21,16 +21,24 @@
 							<image :src="item.head_portrait_url"></image>
 						</view>
 						<view class="post_content">
-							<view class="title" @click="goDetail()">
+							<view v-if="item.post.title != null && item.post.title.length > 0" class="title" @click="goDetail()">
 								{{item.post.title}}
 							</view>
-							<view class="line" @click="goDetail()"></view>
+							<view v-if="item.post.title != null && item.post.title.length > 0" class="line" @click="goDetail()">
+							</view>
 							<view class="content" @click="goDetail()">
 								{{item.post.content}}
 							</view>
 							<view class="img_list">
-								<view class="img" v-if="item.post.imgList.length > 0" v-for="(img, idx) in item.post.imgList" :key="idx">
-									<image :src="img" @click="previewImage(item, idx)"></image>
+								<view class="img" v-if="item.post.imgList.length > 0" v-for="(img, idx) in item.post.imgList"
+									:key="idx">
+									<image v-if="idx != 2" :src="img" @click="previewImage(item, idx)"></image>
+									<!-- 多余部分用省略号代替 -->
+									<view v-if="idx == 2" class="omit" @click="goDetail()">
+										<view class="circle"></view>
+										<view class="circle"></view>
+										<view class="circle"></view>
+									</view>
 								</view>
 							</view>
 						</view>
@@ -90,8 +98,8 @@
 						post: {
 							title: "Title x X x X x X x X x X x X x X x X x X x X x X x X x X x X x X x X x X x X x X x X x X",
 							content: "a bb ccc d ee fff g hh iii j kk lll m nn ooo p qq rrr s tt uuu v ww xxx y zz aaa b cc ddd e ff ggg h ii jjj k ll mmm n oo ppp q rr sss t uu vvv w xx yyy z aa bbb c dd eee f gg hhh i jj kkk l mm nnn o pp qqq r ss ttt u vv www x yy zzz a bb ccc d ee fff g hh iii j kk lll m nn ooo p qq rrr s tt uuu v ww xxx y zz aaa b cc ddd e ff ggg h ii jjj k ll mmm n oo ppp q rr sss t uu vvv w xx yyy z aa bbb c dd eee f gg hhh i jj kkk l mm nnn o pp qqq r ss ttt u vv www x yy zzz",
-							imgList: ["/static/icons/logo.png", "/static/icons/logo.png", "/static/icons/logo.png",
-								"/static/icons/logo.png"
+							imgList: ["/static/community/nums/1.png", "/static/community/nums/2.png",
+								"/static/community/nums/3.png", "/static/community/nums/4.png"
 							]
 						},
 						like: false
@@ -101,7 +109,34 @@
 						post: {
 							title: "Title",
 							content: "Hello Wrold!",
-							imgList: []
+							imgList: ["/static/community/nums/5.png", "/static/community/nums/6.png"]
+						},
+						like: false
+					},
+					{
+						head_portrait_url: "../../static/icons/logo.png",
+						post: {
+							title: null,
+							content: "Hello Wrold!",
+							imgList: ["/static/community/nums/3.png", "/static/community/nums/7.png"]
+						},
+						like: false
+					},
+					{
+						head_portrait_url: "../../static/icons/logo.png",
+						post: {
+							title: "Title",
+							content: "Hello Wrold!",
+							imgList: ["/static/community/nums/4.png"]
+						},
+						like: false
+					},
+					{
+						head_portrait_url: "../../static/icons/logo.png",
+						post: {
+							title: "",
+							content: "Hello Wrold!",
+							imgList: ["/static/community/nums/5.png"]
 						},
 						like: false
 					},
@@ -119,34 +154,9 @@
 						post: {
 							title: "Title",
 							content: "Hello Wrold!",
-							imgList: []
-						},
-						like: false
-					},
-					{
-						head_portrait_url: "../../static/icons/logo.png",
-						post: {
-							title: "Title",
-							content: "Hello Wrold!",
-							imgList: []
-						},
-						like: false
-					},
-					{
-						head_portrait_url: "../../static/icons/logo.png",
-						post: {
-							title: "Title",
-							content: "Hello Wrold!",
-							imgList: []
-						},
-						like: false
-					},
-					{
-						head_portrait_url: "../../static/icons/logo.png",
-						post: {
-							title: "Title",
-							content: "Hello Wrold!",
-							imgList: []
+							imgList: ["/static/community/nums/3.png", "/static/community/nums/6.png",
+								"/static/community/nums/1.png", "/static/community/nums/4.png"
+							]
 						},
 						like: false
 					}
@@ -199,6 +209,14 @@
 				]
 			}
 		},
+		onLoad() {
+			let posts = this.posts;
+			for (let i = 0; i < posts.length; i++) {
+				while (posts[i].post.imgList.length > 3) {
+					posts[i].post.imgList.pop();
+				}
+			}
+		},
 		methods: {
 			goEdit() {
 				uni.navigateTo({
@@ -220,7 +238,7 @@
 					urls: src
 				})
 			}
-			
+
 		}
 	}
 </script>
@@ -333,18 +351,36 @@
 							width: 100%;
 							display: inline-flex;
 							flex-wrap: wrap;
-							justify-content: space-between;
+							// justify-content: space-around;
 
 							.img {
 								border-radius: 20rpx;
-								margin: 10rpx 0 10rpx 0;
-								height: calc((100vw - ((100vw - 10rpx) / 10) - 40rpx - 70rpx) / 3);
-								width: calc((100vw - ((100vw - 10rpx) / 10) - 40rpx - 70rpx) / 3);
+								margin: 10rpx 10rpx 10rpx 10rpx;
+								height: calc((100vw - ((100vw - 10rpx) / 10) - 40rpx - 110rpx) / 3);
+								width: calc((100vw - ((100vw - 10rpx) / 10) - 40rpx - 110rpx) / 3);
 
 								image {
 									border-radius: 20rpx;
 									width: 100%;
 									height: 100%;
+								}
+
+								.omit {
+									border-radius: 20rpx;
+									padding: 20rpx;
+									width: calc(100% - (2 * 20rpx));
+									height: calc(100% - (2 * 20rpx));
+									background-color: #dde8fe;
+									display: flex;
+									align-items: center;
+									justify-content: space-around;
+
+									.circle {
+										border-radius: 50%;
+										height: calc(50% / 3);
+										width: calc(50% / 3);
+										background-color: #ffffff;
+									}
 								}
 							}
 						}

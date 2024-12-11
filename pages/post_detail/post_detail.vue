@@ -34,14 +34,14 @@
 		<view class="select_bar_box">
 			<!-- 筛选 -->
 			<view class="select_comments">
-				<view class="all_comments active">全部回复 ({{post.commentCount}})</view>
-				<view class="only_author">只看作者</view>
+				<view class="all_comments active" @click="allComments()">全部回复 ({{post.commentCount}})</view>
+				<view class="only_author" @click="onlyAuthor()">只看作者</view>
 			</view>
 			<!-- 排序 -->
 			<view class="comments_order">
-				<view class="order_hot ">最热</view>
-				<view class="order_lastest active">最新</view>
-				<view class="order_earliest">最早</view>
+				<view class="order_hot" @click="orderComments(0)">最热</view>
+				<view class="order_lastest active" @click="orderComments(1)">最新</view>
+				<view class="order_earliest" @click="orderComments(2)">最早</view>
 			</view>
 		</view>
 
@@ -79,9 +79,9 @@
 		<!-- 发表评论 -->
 		<view class="publish_comment_box">
 			<view class="input_box">
-				<textarea v-model="text" :adjust-position="true" maxlength="-1" auto-height placeholder="回复一下" />
+				<textarea v-model="commentContent" :adjust-position="true" maxlength="-1" auto-height placeholder="回复一下" />
 			</view>
-			<view class="submit_box">
+			<view class="submit_box" @click="publishComment()">
 				<button>发送</button>
 			</view>
 		</view>
@@ -92,6 +92,9 @@
 	export default {
 		data() {
 			return {
+				commentsOrder: 1, // 0 - 按热度	1 - 按时间最新的在上	2 - 按时间最先发布的在上
+				commentSelect: 0, // 0 - 查看所有  1 - 只看作者
+				commentContent: "",
 				post: {
 					author: {
 						uid: "123",
@@ -101,15 +104,15 @@
 					publishTime: Date.now(),
 					title: "Big Title X X X X X X X",
 					content: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-					imgList: ["/static/icons/logo.png", "/static/icons/logo.png", "/static/icons/logo.png",
-						"/static/icons/logo.png"
+					imgList: ["/static/community/nums/1.png", "/static/community/nums/5.png", "/static/community/nums/2.png",
+						"/static/community/nums/7.png"
 					],
 					commentCount: 666,
 					comments: [{
 						user: {
 							uid: "123",
 							username: "张三",
-							headPortrait: "/static/icons/logo.png"
+							headPortrait: "/static/community/nums/1.png"
 						},
 						content: "666",
 						publishTime: Date.now()
@@ -117,7 +120,7 @@
 						user: {
 							uid: "321",
 							username: "李四",
-							headPortrait: "/static/icons/logo.png"
+							headPortrait: "/static/community/nums/2.png"
 						},
 						content: "来了来了",
 						publishTime: Date.now()
@@ -125,7 +128,7 @@
 						user: {
 							uid: "456",
 							username: "王五",
-							headPortrait: "/static/icons/logo.png"
+							headPortrait: "/static/community/nums/3.png"
 						},
 						content: "逆天",
 						publishTime: Date.now()
@@ -133,7 +136,7 @@
 						user: {
 							uid: "123",
 							username: "test",
-							headPortrait: "/static/icons/logo.png"
+							headPortrait: "/static/community/nums/4.png"
 						},
 						content: "test",
 						publishTime: Date.now()
@@ -141,7 +144,7 @@
 						user: {
 							uid: "123",
 							username: "test",
-							headPortrait: "/static/icons/logo.png"
+							headPortrait: "/static/community/nums/5.png"
 						},
 						content: "test",
 						publishTime: Date.now()
@@ -149,7 +152,7 @@
 						user: {
 							uid: "123",
 							username: "test",
-							headPortrait: "/static/icons/logo.png"
+							headPortrait: "/static/community/nums/6.png"
 						},
 						content: "test",
 						publishTime: Date.now()
@@ -157,7 +160,7 @@
 						user: {
 							uid: "123",
 							username: "test",
-							headPortrait: "/static/icons/logo.png"
+							headPortrait: "/static/community/nums/7.png"
 						},
 						content: "test",
 						publishTime: Date.now()
@@ -165,7 +168,7 @@
 						user: {
 							uid: "123",
 							username: "test",
-							headPortrait: "/static/icons/logo.png"
+							headPortrait: "/static/community/nums/1.png"
 						},
 						content: "test",
 						publishTime: Date.now()
@@ -173,7 +176,7 @@
 						user: {
 							uid: "123",
 							username: "test",
-							headPortrait: "/static/icons/logo.png"
+							headPortrait: "/static/community/nums/2.png"
 						},
 						content: "test",
 						publishTime: Date.now()
@@ -181,7 +184,7 @@
 						user: {
 							uid: "123",
 							username: "test",
-							headPortrait: "/static/icons/logo.png"
+							headPortrait: "/static/community/nums/3.png"
 						},
 						content: "test",
 						publishTime: Date.now()
@@ -189,7 +192,7 @@
 						user: {
 							uid: "123",
 							username: "test",
-							headPortrait: "/static/icons/logo.png"
+							headPortrait: "/static/community/nums/4.png"
 						},
 						content: "test",
 						publishTime: Date.now()
@@ -214,6 +217,25 @@
 					current: idx,
 					urls: src
 				})
+			},
+			allComments() {
+				console.log("查看全部评论");
+				this.commentSelect = 0;
+			},
+			onlyAuthor() {
+				console.log("只看作者");
+				this.commentSelect = 1;
+			},
+			orderComments(order) {
+				console.log("评论排序方式" + order);
+				this.commentsOrder = order;
+			},
+			publishComment() {
+				console.log("提交评论");
+				let comment = this.commentContent;
+				let currentTime = Date.now();
+				let uid = "1234567";
+				let username = "zhangsan";
 			}
 		}
 	}
@@ -413,11 +435,12 @@
 			}
 
 		}
-		
+
 		.no_comment {
 			display: flex;
 			justify-content: center;
 			padding-top: 20%;
+
 			view {
 				color: #acacac;
 			}
