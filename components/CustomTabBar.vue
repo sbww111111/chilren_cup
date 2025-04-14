@@ -12,11 +12,30 @@
 		</view>
 
 
+<<<<<<< HEAD
 		<!-- 中间按钮 -->
 		<view class="tab-item tab-item-center" @click="navigateTo('/pages/post/post')">
 			<image class="icon" src="/static/icons/points.png" />
 			<image class="tab-img" src="/static/fonts/home.png" />
 		</view>
+=======
+      <!-- 中间按钮 -->
+      <view class="tab-item tab-item-center" @click="navigateTo('/pages/index/index')">
+        <image class="icon" src="/static/icons/points.png" />
+		<image class="tab-img" src="/static/fonts/home.png"/>
+      </view>
+      
+      <!-- 右侧按钮 -->
+      <view class="tab-item tab-item-four" @click="navigateTo('/pages/index/index')">
+        <image class="icon" src="/static/icons/knowledge.png" />
+		<image class="tab-img" src="/static/fonts/home.png"/>
+      </view>
+	  <view class="tab-item tab-item-five" @click="navigateTo('/pages/my/my')">
+	    <image class="icon" src="/static/icons/my.png" />
+		<image class="tab-img" src="/static/fonts/home.png"/>
+	  </view>
+    </view>
+>>>>>>> my
 
 		<!-- 右侧按钮 -->
 		<view class="tab-item tab-item-four" @click="navigateTo('/pages/knowledge/knowledge')">
@@ -29,6 +48,7 @@
 		</view>
 	</view>
 
+<<<<<<< HEAD
 </template>
 
 <script>
@@ -42,6 +62,19 @@
 		}
 	};
 </script>
+=======
+  <script>
+  export default {
+    methods: {
+      navigateTo(url) {
+        uni.redirectTo({
+          url
+        });
+      }
+    }
+  };
+  </script>
+>>>>>>> my
 
 
 <style scoped>
@@ -84,6 +117,7 @@
 		z-index: 1001;
 	}
 
+<<<<<<< HEAD
 	.tab-img {
 		position: absolute;
 		bottom: -10px;
@@ -134,3 +168,20 @@
 		height: 30px;
 	}
 </style>
+=======
+  /* 右侧按钮 */
+  .tab-item-four {
+    right: 23%;
+    transform: translateY(-110%); /* 超出半圆顶部 */
+  }
+  .tab-item-five {
+    right: 5%;
+    transform: translateY(-90%); /* 超出半圆顶部 */
+  }
+  /* 按钮图标 */
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+  </style>
+>>>>>>> my
