@@ -19,7 +19,7 @@
       </view>
       
       <!-- 右侧按钮 -->
-      <view class="tab-item tab-item-four" @click="navigateTo('/pages/user/user')">
+      <view class="tab-item tab-item-four" @click="navigateTo('/pages/knowledge/knowledge')">
         <image class="icon" src="/static/icons/knowledge.png" />
 		<image class="tab-img" src="/static/fonts/home.png"/>
       </view>
