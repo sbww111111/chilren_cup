@@ -9,7 +9,6 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app",
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "首页"
 			}
@@ -46,6 +45,13 @@
 				"navigationBarTitleText": "帖子详情"
 			}
 		},
+		{
+			"path": "pages/points/points",
+			"style": {
+				"navigationBarTitleText": "积分",
+				"disableScroll": true
+			}
+		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -56,5 +62,4 @@
 			"CustomTabBar": "./components/CustomTabBar"
 		}
 	}
-
 }

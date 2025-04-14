@@ -53,6 +53,7 @@
 						</view>
 					</view>
 				</view>
+				<!-- 空白占位 -->
 				<view class="comment_item" style="width: 100%; height: 100px;"></view>
 			</scroll-view>
 		</view>

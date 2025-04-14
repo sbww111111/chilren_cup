@@ -12,7 +12,7 @@
 		</view>
 
 		<!-- 中间按钮 -->
-		<view class="tab-item tab-item-center" @click="navigateTo('/pages/post/post')">
+		<view class="tab-item tab-item-center" @click="navigateTo('/pages/points/points')">
 			<image class="icon" src="/static/icons/points.png" />
 			<image class="tab-img" src="/static/fonts/home.png" />
 		</view>

@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "appid": "wxf40dd50e417937b1",
-=======
-  "appid": "wxcda62cd646dba4f3",
->>>>>>> my
   "compileType": "miniprogram",
   "libVersion": "3.7.0",
   "packOptions": {
