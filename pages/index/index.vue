@@ -1,19 +1,12 @@
 <template>
 	<view class="bcground">
-		<view>{{ msg }}</view>
 		<view class="uni-margin-wrap">
 			<swiper class="swiper" circular :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
 				:duration="duration">
-				<swiper-item>
+				<swiper-item v-for="(item, index) in pic" :key="index">
 					<view class="swiper-item uni-bg-red">
-						<image src="/static/index/轮播图1.jpg" style="height: 100%; width: 100%;"></image>
+						<image :src="item" style="height: 100%; width: 100%;"></image>
 					</view>
-				</swiper-item>
-				<swiper-item>
-					<image src="/static/index/轮播图2.jpg" style="height: 100%; width: 100%;"></image>
-				</swiper-item>
-				<swiper-item>
-					<image src="/static/index/轮播图3.jpg" style="height: 100%; width: 100%;"></image>
 				</swiper-item>
 			</swiper>
 		</view>
@@ -59,20 +52,28 @@
 		},
 		data() {
 			return {
-				msg: "123",
+				pic: [],
 				background: ['red', 'blue', 'green'],
 				indicatorDots: true,
 				autoplay: false,
 				interval: 2000,
 				duration: 500,
 				dian: 100,
-				shuiliang1: 20,
+				shuiliang1: 0,
 				//73 就是100
 
 			}
 		},
 		onLoad() {
-			// axios.get(`http://localhost:8090/dianliang`).then(res => {this.dian = res.data});
+			axios.get(`http://localhost:8081/cup/1`).then(res => {
+				console.log(res.data);
+				this.dian = res.data.data.battery
+				this.shuiliang1 = res.data.data.water
+			});
+			axios.get(`http://localhost:8081/cup/pic`).then(res => {
+				console.log(res.data);
+				this.pic = res.data.data
+			});
 		},
 		methods: {}
 	};

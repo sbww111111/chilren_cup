@@ -51,6 +51,13 @@
 				"navigationBarTitleText": "积分",
 				"disableScroll": true
 			}
+		},
+		{
+			"path" : "pages/knowledge_detail/knowledge_detail",
+			"style" : 
+			{
+				"navigationBarTitleText" : "科普"
+			}
 		}
 	],
 	"globalStyle": {
